@@ -8,7 +8,7 @@ class DartTheme {
     scaffoldBackgroundColor: Colors.black,
     cardColor: Color(0xffe3e3e3),
     primaryColor: Colors.white,
-    primaryColorLight: Colors.red,
+    primaryColorLight: Colors.redAccent,
     dividerColor: Color(0xFFe0e0e0),
     progressIndicatorTheme: ProgressIndicatorThemeData(
       circularTrackColor: Colors.white,

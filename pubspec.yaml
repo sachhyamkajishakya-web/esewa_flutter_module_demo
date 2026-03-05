@@ -19,6 +19,9 @@ dependencies:
   flutter_bloc: ^9.1.1
   dio_network_interceptor: ^1.0.0
   dartz: ^0.10.1
+  flutter_localizations:
+    sdk: flutter
+  intl: any
 
 dev_dependencies:
   flutter_test:
@@ -31,6 +34,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  generate: true
 
   module:
     androidX: true

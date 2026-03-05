@@ -1,3 +1,5 @@
+import 'package:esewa_flutter_module/core/constants/spacing.dart';
+import 'package:esewa_flutter_module/core/extension/context_extension.dart';
 import 'package:esewa_flutter_module/domain/models/product.dart';
 import 'package:flutter/material.dart';
 
@@ -8,38 +10,34 @@ class ItemPriceRatingSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: .only(top: 10),
+      margin: .only(top: AppSpacing.sm),
       decoration: BoxDecoration(
         borderRadius: .only(
-          bottomLeft: .circular(10),
-          bottomRight: .circular(10),
+          bottomLeft: .circular(AppRadius.md),
+          bottomRight: .circular(AppRadius.md),
         ),
-        color: Color(0xFFf2545b),
+        color: Theme.of(context).primaryColorLight,
       ),
-      padding: .all(5),
+      padding: .symmetric(vertical: AppSpacing.xs, horizontal: AppSpacing.sm),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Expanded(
             child: Text(
               "\$${product.price.toStringAsFixed(2)}",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
+              style: context.textTheme.bodyLarge?.copyWith(
+                color: context.theme.primaryColor,
               ),
             ),
           ),
           Row(
             children: [
-              Icon(Icons.star, color: Colors.white, size: 15),
+              Icon(Icons.star, color: context.theme.primaryColor, size: 15),
               SizedBox(width: 2),
               Text(
                 product.rating.rate.toStringAsFixed(2),
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+                style: context.textTheme.bodyLarge?.copyWith(
+                  color: context.theme.primaryColor,
                 ),
               ),
             ],

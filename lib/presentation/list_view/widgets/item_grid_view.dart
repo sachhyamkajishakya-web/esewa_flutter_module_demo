@@ -1,3 +1,5 @@
+import 'package:esewa_flutter_module/core/constants/spacing.dart';
+import 'package:esewa_flutter_module/core/extension/context_extension.dart';
 import 'package:esewa_flutter_module/domain/models/product.dart';
 import 'package:esewa_flutter_module/presentation/list_view/widgets/item_price_rating_section.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +11,6 @@ class ItemGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       physics: const BouncingScrollPhysics(),
       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
         maxCrossAxisExtent: 200,
@@ -21,14 +22,18 @@ class ItemGridView extends StatelessWidget {
       itemBuilder: (context, index) {
         return Container(
           decoration: BoxDecoration(
-            borderRadius: .circular(10),
-            color: Color(0xFFE0E0E0),
+            borderRadius: .circular(AppRadius.md),
+            color: context.theme.cardColor,
           ),
           child: Column(
             children: [
               Expanded(
                 child: Padding(
-                  padding: .only(left: 10, right: 10, top: 20),
+                  padding: .only(
+                    left: AppSpacing.sm,
+                    right: AppSpacing.sm,
+                    top: AppSpacing.sm,
+                  ),
                   child: Image.network(
                     products[index].image,
                     scale: 3,

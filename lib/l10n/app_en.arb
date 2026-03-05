@@ -2,5 +2,29 @@
 {
     "@@locale": "en",
     "error":"Error",
-    "ok":"Ok"
+       "@error": {
+        "description": "Error title"  
+    },
+    "ok":"Ok",
+    "@ok": {
+        "description": "Ok text"  
+    },
+    "ratings":"{rating} Ratings",
+    "@ratings": {
+        "description": "Rating of the product",
+        "placeholders": {
+            "rating": {
+                "type": "String"
+            }
+        }
+    },
+    "reviews":"{reviews} Reviews",
+    "@reviews": {
+        "description": "Total Review of the product",
+        "placeholders": {
+            "reviews": {
+                "type": "int"
+            }
+        }
+    }
 }

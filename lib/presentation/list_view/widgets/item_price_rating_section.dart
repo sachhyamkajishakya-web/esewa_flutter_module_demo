@@ -16,29 +16,42 @@ class ItemPriceRatingSection extends StatelessWidget {
           bottomLeft: .circular(AppRadius.md),
           bottomRight: .circular(AppRadius.md),
         ),
-        color: Theme.of(context).primaryColorLight,
       ),
       padding: .symmetric(vertical: AppSpacing.xs, horizontal: AppSpacing.sm),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(
-            child: Text(
-              "\$${product.price.toStringAsFixed(2)}",
-              style: context.textTheme.bodyLarge?.copyWith(
-                color: context.theme.primaryColor,
-              ),
+          Text(
+            product.category,
+            style: context.textTheme.displaySmall?.copyWith(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
             ),
           ),
+          SizedBox(height: AppSpacing.xs),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Icon(Icons.star, color: context.theme.primaryColor, size: 15),
-              SizedBox(width: 2),
-              Text(
-                product.rating.rate.toStringAsFixed(2),
-                style: context.textTheme.bodyLarge?.copyWith(
-                  color: context.theme.primaryColor,
+              Expanded(
+                child: Text(
+                  "\$${product.price.toStringAsFixed(2)}",
+                  style: context.textTheme.bodyLarge?.copyWith(
+                    color: Colors.black,
+                  ),
                 ),
+              ),
+              SizedBox(height: AppSpacing.lg),
+              Row(
+                children: [
+                  Icon(Icons.star, color: Colors.amber, size: AppIconSize.sm),
+                  SizedBox(width: 2),
+                  Text(
+                    product.rating.rate.toStringAsFixed(2),
+                    style: context.textTheme.bodyLarge?.copyWith(
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

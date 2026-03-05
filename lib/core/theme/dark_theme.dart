@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 
 class DartTheme {
+  static const lightThemeTextColor = Color(0xff534b49);
   static final darkTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,
     scaffoldBackgroundColor: Colors.black,
-    cardColor: Color(0xfffaf8ef),
-    primaryColor: Color(0xff534b49),
-    primaryColorLight: Color(0xfff0ead0),
+    cardColor: Color(0xffe3e3e3),
+    primaryColor: Colors.white,
+    primaryColorLight: Colors.red,
+    progressIndicatorTheme: ProgressIndicatorThemeData(
+      circularTrackColor: Colors.white,
+      color: lightThemeTextColor,
+    ),
     dialogTheme: DialogThemeData(
       backgroundColor: Colors.white,
       titleTextStyle: TextStyle(
@@ -22,33 +27,15 @@ class DartTheme {
       ),
     ),
     textTheme: TextTheme(
-      bodySmall: TextStyle(
-        color: Colors.white,
-        fontSize: 10,
-        fontWeight: FontWeight.w400,
-      ),
-      bodyMedium: TextStyle(
-        color: Colors.white,
-        fontSize: 12,
-        fontWeight: FontWeight.normal,
-      ),
-      bodyLarge: TextStyle(
-        color: Colors.white,
-        fontSize: 14,
-        fontWeight: FontWeight.bold,
-      ),
-      titleSmall: TextStyle(
-        color: Colors.white,
-        fontSize: 24,
-        fontWeight: FontWeight.w500,
-      ),
-      titleMedium: TextStyle(
-        color: Colors.white,
-        fontSize: 32,
-        fontWeight: FontWeight.w500,
-      ),
+      bodySmall: TextStyle(fontSize: 10, fontWeight: FontWeight.w400),
+      bodyMedium: TextStyle(fontSize: 12, fontWeight: FontWeight.normal),
+      bodyLarge: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+      displaySmall: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
+      displayMedium: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+      displayLarge: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      titleSmall: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+      titleMedium: TextStyle(fontSize: 32, fontWeight: FontWeight.w500),
       titleLarge: TextStyle(
-        color: Colors.white,
         fontSize: 40,
         fontWeight: FontWeight.bold,
         letterSpacing: 1.5,

@@ -6,9 +6,13 @@ class LightTheme {
     useMaterial3: true,
     brightness: Brightness.light,
     scaffoldBackgroundColor: Colors.white,
-    cardColor: Color(0xfffaf8ef),
-    primaryColor: lightThemeTextColor,
-    primaryColorLight: Color(0xfff0ead0),
+    cardColor: Color(0xffe3e3e3),
+    primaryColor: Colors.black,
+    primaryColorLight: Colors.redAccent,
+    progressIndicatorTheme: ProgressIndicatorThemeData(
+      circularTrackColor: Colors.white,
+      color: lightThemeTextColor,
+    ),
     dialogTheme: DialogThemeData(
       backgroundColor: Colors.white,
       titleTextStyle: TextStyle(
@@ -23,33 +27,15 @@ class LightTheme {
       ),
     ),
     textTheme: TextTheme(
-      bodySmall: TextStyle(
-        color: lightThemeTextColor,
-        fontSize: 10,
-        fontWeight: FontWeight.w400,
-      ),
-      bodyMedium: TextStyle(
-        color: lightThemeTextColor,
-        fontSize: 12,
-        fontWeight: FontWeight.normal,
-      ),
-      bodyLarge: TextStyle(
-        color: lightThemeTextColor,
-        fontSize: 14,
-        fontWeight: FontWeight.bold,
-      ),
-      titleSmall: TextStyle(
-        color: lightThemeTextColor,
-        fontSize: 24,
-        fontWeight: FontWeight.w500,
-      ),
-      titleMedium: TextStyle(
-        color: lightThemeTextColor,
-        fontSize: 32,
-        fontWeight: FontWeight.w500,
-      ),
+      bodySmall: TextStyle(fontSize: 10, fontWeight: FontWeight.w400),
+      bodyMedium: TextStyle(fontSize: 12, fontWeight: FontWeight.normal),
+      bodyLarge: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+      displaySmall: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
+      displayMedium: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+      displayLarge: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+      titleSmall: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+      titleMedium: TextStyle(fontSize: 32, fontWeight: FontWeight.w500),
       titleLarge: TextStyle(
-        color: lightThemeTextColor,
         fontSize: 40,
         fontWeight: FontWeight.bold,
         letterSpacing: 1.5,

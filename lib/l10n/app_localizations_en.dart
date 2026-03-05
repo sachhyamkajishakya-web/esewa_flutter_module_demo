@@ -13,4 +13,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get ok => 'Ok';
+
+  @override
+  String ratings(String rating) {
+    return '$rating Ratings';
+  }
+
+  @override
+  String reviews(int reviews) {
+    return '$reviews Reviews';
+  }
 }

@@ -33,7 +33,7 @@ class ProductListScreenScaffold extends StatelessWidget {
               error: (errorMessage) {
                 // show all error in a dialog box
                 return context.showAlertDialog(
-                  title: 'Error',
+                  title: context.l10n.error,
                   message: errorMessage,
                 );
               },

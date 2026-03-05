@@ -1,8 +1,10 @@
+import 'package:esewa_flutter_module/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 extension BuildContextX on BuildContext {
   ThemeData get theme => Theme.of(this);
   TextTheme get textTheme => Theme.of(this).textTheme;
+  AppLocalizations get l10n => AppLocalizations.of(this)!;
 
   Future<void> showAlertDialog({
     required String title,

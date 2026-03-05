@@ -1,6 +1,7 @@
 import 'package:esewa_flutter_module/core/getIt/service_locator.dart';
 import 'package:esewa_flutter_module/core/theme/dark_theme.dart';
 import 'package:esewa_flutter_module/core/theme/light_theme.dart';
+import 'package:esewa_flutter_module/l10n/app_localizations.dart';
 import 'package:esewa_flutter_module/presentation/list_view/screens/product_list_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +20,8 @@ class MyApp extends StatelessWidget {
       theme: LightTheme.lightTheme,
       darkTheme: DartTheme.darkTheme,
       themeMode: ThemeMode.system,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       home: const ProductListScreen(),
     );
   }

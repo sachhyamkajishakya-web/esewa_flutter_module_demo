@@ -1,3 +1,5 @@
+import 'package:esewa_flutter_module/core/constants/spacing.dart';
+import 'package:esewa_flutter_module/core/extension/context_extension.dart';
 import 'package:esewa_flutter_module/core/getIt/service_locator.dart';
 import 'package:esewa_flutter_module/presentation/list_view/cubit/product_list_cubit/product_list_cubit.dart';
 import 'package:esewa_flutter_module/presentation/list_view/widgets/item_grid_view.dart';
@@ -22,31 +24,17 @@ class ProductListScreenScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       body: SafeArea(
+        minimum: .symmetric(horizontal: AppSpacing.md, vertical: AppSpacing.sm),
         child: BlocConsumer<ProductListCubit, ProductListState>(
           listener: (context, state) {
             state.maybeWhen(
               orElse: () {},
-              error: (error) {
+              error: (errorMessage) {
                 // show all error in a dialog box
-                return showDialog(
-                  context: context,
-                  builder: (context) {
-                    return AlertDialog(
-                      title: Center(child: Text("Error")),
-                      content: Text(error),
-                      actions: [
-                        TextButton(
-                          child: Text("OK"),
-                          onPressed: () {
-                            // Dismiss the dialog when the button is pressed
-                            Navigator.of(context).pop();
-                          },
-                        ),
-                      ],
-                    );
-                  },
+                return context.showAlertDialog(
+                  title: 'Error',
+                  message: errorMessage,
                 );
               },
             );

@@ -19,7 +19,7 @@ class _ItemInfoSectionState extends State<ItemInfoSection> {
       children: [
         _ratings(),
         _horizontalDivider(),
-        _textWidget(context.l10n.reviews(widget.product.rating.count.toInt())),
+        _textWidget(context.l10n.sold(widget.product.rating.count.toInt())),
         if (context.width > 600) ...[
           _horizontalDivider(),
           _textWidget(widget.product.category),

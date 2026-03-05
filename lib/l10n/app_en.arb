@@ -18,13 +18,38 @@
             }
         }
     },
-    "reviews":"{reviews} Reviews",
-    "@reviews": {
-        "description": "Total Review of the product",
+    "sold":"{sold} Sold",
+    "@sold": {
+        "description": "Total number of the product sold",
         "placeholders": {
-            "reviews": {
+            "sold": {
                 "type": "int"
             }
         }
+    },
+    "price":"$ {price}",
+    "@price": {
+        "description": "Price of the product",
+        "placeholders": {
+            "price": {
+                "type": "String"
+            }
+        }
+    },
+    "pay":"Pay",
+    "@pay": {
+        "description": "Pay text"  
+    },
+    "totalPrice":"Total Price",
+    "@totalPrice": {
+        "description": "Total price text"  
+    },
+    "productCategory":"Product Category",
+    "@productCategory": {
+        "description": "Product category text"  
+    },
+    "productDescription":"Product Description",
+    "@productDescription": {
+        "description": "Product description text"  
     }
 }

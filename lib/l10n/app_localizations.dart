@@ -112,11 +112,41 @@ abstract class AppLocalizations {
   /// **'{rating} Ratings'**
   String ratings(String rating);
 
-  /// Total Review of the product
+  /// Total number of the product sold
   ///
   /// In en, this message translates to:
-  /// **'{reviews} Reviews'**
-  String reviews(int reviews);
+  /// **'{sold} Sold'**
+  String sold(int sold);
+
+  /// Price of the product
+  ///
+  /// In en, this message translates to:
+  /// **'\$ {price}'**
+  String price(String price);
+
+  /// Pay text
+  ///
+  /// In en, this message translates to:
+  /// **'Pay'**
+  String get pay;
+
+  /// Total price text
+  ///
+  /// In en, this message translates to:
+  /// **'Total Price'**
+  String get totalPrice;
+
+  /// Product category text
+  ///
+  /// In en, this message translates to:
+  /// **'Product Category'**
+  String get productCategory;
+
+  /// Product description text
+  ///
+  /// In en, this message translates to:
+  /// **'Product Description'**
+  String get productDescription;
 }
 
 class _AppLocalizationsDelegate

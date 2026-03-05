@@ -18,30 +18,104 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ImageSection(imageUrl: widget.product.image),
-            SizedBox(height: AppSpacing.lg),
-            ItemInfoSection(product: widget.product),
-            SizedBox(height: AppSpacing.xl),
-            Text(
-              widget.product.title,
-              style: context.textTheme.displayLarge?.copyWith(height: 1.3),
+      horizontalPadding: 0,
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          SingleChildScrollView(
+            physics: const AlwaysScrollableScrollPhysics(),
+            padding: .symmetric(horizontal: AppSpacing.md),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ImageSection(imageUrl: widget.product.image),
+                SizedBox(height: AppSpacing.lg),
+                ItemInfoSection(product: widget.product),
+                SizedBox(height: AppSpacing.xl),
+                Text(
+                  widget.product.title,
+                  style: context.textTheme.displayLarge?.copyWith(height: 1.3),
+                ),
+                SizedBox(height: AppSpacing.md),
+                if (context.width <= 600)
+                  ..._contentWithTitle(
+                    title: context.l10n.productCategory,
+                    content: widget.product.category,
+                  ),
+                ..._contentWithTitle(
+                  title: context.l10n.productDescription,
+                  content: widget.product.description,
+                ),
+              ],
             ),
-            SizedBox(height: AppSpacing.md),
-            if (context.width <= 600)
-              ..._contentWithTitle(
-                title: 'Product Category',
-                content: widget.product.category,
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Container(
+              padding: .symmetric(horizontal: AppSpacing.md),
+              height: 100,
+              decoration: BoxDecoration(
+                color: context.theme.scaffoldBackgroundColor,
+                borderRadius: BorderRadius.circular(AppRadius.lg),
+                boxShadow: [
+                  BoxShadow(
+                    color: context.theme.primaryColor.withValues(alpha: 0.1),
+                    blurRadius: 10,
+                    offset: Offset(0, -5), // negative y pushes shadow upward
+                  ),
+                ],
               ),
-            ..._contentWithTitle(
-              title: 'Product Description',
-              content: widget.product.description,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          context.l10n.totalPrice,
+                          style: context.textTheme.displayMedium?.copyWith(
+                            color: Colors.grey,
+                          ),
+                        ),
+                        SizedBox(height: AppSpacing.xs),
+                        Text(
+                          context.l10n.price(
+                            widget.product.price.toStringAsFixed(2),
+                          ),
+                          style: context.textTheme.displayLarge?.copyWith(
+                            color: context.theme.primaryColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 100),
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      height: context.width <= 600 ? 50 : 60,
+                      decoration: BoxDecoration(
+                        borderRadius: .circular(AppRadius.md),
+                        color: context.theme.primaryColorLight,
+                      ),
+                      child: Center(
+                        child: Text(
+                          context.l10n.pay,
+                          style: context.textTheme.displayLarge?.copyWith(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

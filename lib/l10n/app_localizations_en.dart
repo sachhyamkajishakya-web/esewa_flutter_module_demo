@@ -20,7 +20,24 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String reviews(int reviews) {
-    return '$reviews Reviews';
+  String sold(int sold) {
+    return '$sold Sold';
   }
+
+  @override
+  String price(String price) {
+    return '\$ $price';
+  }
+
+  @override
+  String get pay => 'Pay';
+
+  @override
+  String get totalPrice => 'Total Price';
+
+  @override
+  String get productCategory => 'Product Category';
+
+  @override
+  String get productDescription => 'Product Description';
 }

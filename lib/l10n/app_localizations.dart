@@ -94,17 +94,59 @@ abstract class AppLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[Locale('en')];
 
-  /// No description provided for @error.
+  /// Error title
   ///
   /// In en, this message translates to:
   /// **'Error'**
   String get error;
 
-  /// No description provided for @ok.
+  /// Ok text
   ///
   /// In en, this message translates to:
   /// **'Ok'**
   String get ok;
+
+  /// Rating of the product
+  ///
+  /// In en, this message translates to:
+  /// **'{rating} Ratings'**
+  String ratings(String rating);
+
+  /// Total number of the product sold
+  ///
+  /// In en, this message translates to:
+  /// **'{sold} Sold'**
+  String sold(int sold);
+
+  /// Price of the product
+  ///
+  /// In en, this message translates to:
+  /// **'\$ {price}'**
+  String price(String price);
+
+  /// Pay text
+  ///
+  /// In en, this message translates to:
+  /// **'Pay'**
+  String get pay;
+
+  /// Total price text
+  ///
+  /// In en, this message translates to:
+  /// **'Total Price'**
+  String get totalPrice;
+
+  /// Product category text
+  ///
+  /// In en, this message translates to:
+  /// **'Product Category'**
+  String get productCategory;
+
+  /// Product description text
+  ///
+  /// In en, this message translates to:
+  /// **'Product Description'**
+  String get productDescription;
 }
 
 class _AppLocalizationsDelegate

@@ -2,5 +2,54 @@
 {
     "@@locale": "en",
     "error":"Error",
-    "ok":"Ok"
+       "@error": {
+        "description": "Error title"  
+    },
+    "ok":"Ok",
+    "@ok": {
+        "description": "Ok text"  
+    },
+    "ratings":"{rating} Ratings",
+    "@ratings": {
+        "description": "Rating of the product",
+        "placeholders": {
+            "rating": {
+                "type": "String"
+            }
+        }
+    },
+    "sold":"{sold} Sold",
+    "@sold": {
+        "description": "Total number of the product sold",
+        "placeholders": {
+            "sold": {
+                "type": "int"
+            }
+        }
+    },
+    "price":"$ {price}",
+    "@price": {
+        "description": "Price of the product",
+        "placeholders": {
+            "price": {
+                "type": "String"
+            }
+        }
+    },
+    "pay":"Pay",
+    "@pay": {
+        "description": "Pay text"  
+    },
+    "totalPrice":"Total Price",
+    "@totalPrice": {
+        "description": "Total price text"  
+    },
+    "productCategory":"Product Category",
+    "@productCategory": {
+        "description": "Product category text"  
+    },
+    "productDescription":"Product Description",
+    "@productDescription": {
+        "description": "Product description text"  
+    }
 }

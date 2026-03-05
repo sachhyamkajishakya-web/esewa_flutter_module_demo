@@ -1,5 +1,5 @@
 import 'package:esewa_flutter_module/core/constants/spacing.dart';
-import 'package:esewa_flutter_module/core/extension/context_extension.dart';
+import 'package:esewa_flutter_module/presentation/detail_view/screens/product_detail_screen.dart';
 import 'package:esewa_flutter_module/domain/models/product.dart';
 import 'package:esewa_flutter_module/presentation/list_view/widgets/item_price_rating_section.dart';
 import 'package:flutter/material.dart';
@@ -16,35 +16,45 @@ class ItemGridView extends StatelessWidget {
         maxCrossAxisExtent: 200,
         crossAxisSpacing: 16,
         mainAxisSpacing: 16,
-        childAspectRatio: 0.7,
+        childAspectRatio: 0.67,
       ),
       itemCount: products.length,
       itemBuilder: (context, index) {
-        return Container(
-          decoration: BoxDecoration(
-            borderRadius: .circular(AppRadius.md),
-            color: context.theme.cardColor,
+        return GestureDetector(
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute<void>(
+              builder: (context) =>
+                  ProductDetailScreen(product: products[index]),
+            ),
           ),
-          child: Column(
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: .only(
-                    left: AppSpacing.sm,
-                    right: AppSpacing.sm,
-                    top: AppSpacing.sm,
-                  ),
-                  child: Image.network(
-                    products[index].image,
-                    scale: 3,
-                    fit: BoxFit.contain,
-                    loadingBuilder: (context, child, loadingProgress) =>
-                        Center(child: child),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: .circular(AppRadius.md),
+              color: Color(0xffe3e3e3),
+            ),
+            child: Column(
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: .only(
+                      left: AppSpacing.sm,
+                      right: AppSpacing.sm,
+                      top: AppSpacing.sm,
+                    ),
+                    child: Image.network(
+                      products[index].image,
+                      scale: 3,
+                      fit: .contain,
+                      loadingBuilder: (context, child, loadingProgress) =>
+                          Center(child: child),
+                    ),
                   ),
                 ),
-              ),
-              ItemPriceRatingSection(product: products[index]),
-            ],
+                SizedBox(height: AppSpacing.md),
+                ItemPriceRatingSection(product: products[index]),
+              ],
+            ),
           ),
         );
       },

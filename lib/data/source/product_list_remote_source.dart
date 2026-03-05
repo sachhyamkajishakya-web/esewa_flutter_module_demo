@@ -13,7 +13,7 @@ class ProductListRemoteSource extends BaseRemoteSource {
 
   Future<Either<NetworkException, List<Product>>> getProducts() async {
     return safeApiCall(
-      () => dio.client.get('/posts'),
+      () => dio.client.get('products'),
       (data) => (data as List).map((e) => Product.fromJson(e)).toList(),
     );
   }

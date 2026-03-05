@@ -16,12 +16,11 @@ class ProductListCubit extends Cubit<ProductListState> {
   final ProductListRepository _repository;
 
   Future<void> fetchProducts() async {
-    try {
-      emit(ProductListState.loading());
-      final products = await _repository.getProducts();
-      emit(ProductListState.success(products));
-    } catch (error) {
-      emit(ProductListState.error(error.toString()));
-    }
+    emit(ProductListState.loading());
+    final products = await _repository.getProducts();
+    products.fold(
+      (error) => emit(ProductListState.error(error.message)),
+      (data) => emit(ProductListState.success(data)),
+    );
   }
 }

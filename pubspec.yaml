@@ -17,6 +17,8 @@ dependencies:
   json_annotation: ^4.11.0
   injectable: ^2.7.1+4
   flutter_bloc: ^9.1.1
+  dio_network_interceptor: ^1.0.0
+  dartz: ^0.10.1
 
 dev_dependencies:
   flutter_test:

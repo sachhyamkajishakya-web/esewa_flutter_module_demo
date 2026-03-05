@@ -9,6 +9,7 @@ class LightTheme {
     cardColor: Color(0xffe3e3e3),
     primaryColor: Colors.black,
     primaryColorLight: Colors.redAccent,
+    dividerColor: Color(0xFFe0e0e0),
     progressIndicatorTheme: ProgressIndicatorThemeData(
       circularTrackColor: Colors.white,
       color: lightThemeTextColor,

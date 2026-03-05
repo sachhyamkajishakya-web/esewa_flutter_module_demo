@@ -6,10 +6,15 @@ import 'package:esewa_flutter_module/presentation/detail_view/widgets/image_sect
 import 'package:esewa_flutter_module/presentation/detail_view/widgets/item_info_section.dart';
 import 'package:flutter/material.dart';
 
-class ProductDetailScreen extends StatelessWidget {
+class ProductDetailScreen extends StatefulWidget {
   const ProductDetailScreen({super.key, required this.product});
   final Product product;
 
+  @override
+  State<ProductDetailScreen> createState() => _ProductDetailScreenState();
+}
+
+class _ProductDetailScreenState extends State<ProductDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
@@ -17,16 +22,44 @@ class ProductDetailScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ImageSection(imageUrl: product.image),
+            ImageSection(imageUrl: widget.product.image),
             SizedBox(height: AppSpacing.lg),
-            ItemInfoSection(product: product),
+            ItemInfoSection(product: widget.product),
             SizedBox(height: AppSpacing.xl),
-            Text(product.title, style: context.textTheme.displayLarge),
-            SizedBox(height: AppSpacing.lg),
-            Text(product.description, style: context.textTheme.displaySmall),
+            Text(
+              widget.product.title,
+              style: context.textTheme.displayLarge?.copyWith(height: 1.3),
+            ),
+            SizedBox(height: AppSpacing.md),
+            if (context.width <= 600)
+              ..._contentWithTitle(
+                title: 'Product Category',
+                content: widget.product.category,
+              ),
+            ..._contentWithTitle(
+              title: 'Product Description',
+              content: widget.product.description,
+            ),
           ],
         ),
       ),
     );
   }
+
+  List<Widget> _contentWithTitle({
+    required String title,
+    required String content,
+  }) => [
+    SizedBox(height: AppSpacing.md),
+    Text(title, style: context.textTheme.bodyLarge?.copyWith(letterSpacing: 0)),
+    SizedBox(height: AppSpacing.xs),
+    Text(
+      content,
+      style: context.textTheme.bodyLarge?.copyWith(
+        letterSpacing: 0,
+        fontWeight: FontWeight.normal,
+      ),
+      textAlign: TextAlign.justify,
+    ),
+  ];
 }

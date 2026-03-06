@@ -51,4 +51,11 @@ app.*.map.json
 *.g.dart
 *.freezed.dart
 *.config.dart
+
+# pubspec lock
 pubspec.lock
+
+# environment files
+.env.dev
+.env.prod
+.env.stg

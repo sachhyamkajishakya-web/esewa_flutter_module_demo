@@ -22,6 +22,10 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: any
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  logger: ^2.6.2
+  envied: ^1.3.3
 
 dev_dependencies:
   flutter_test:
@@ -31,6 +35,7 @@ dev_dependencies:
   json_serializable: ^6.13.0
   injectable_generator: ^2.12.1
   freezed: ^3.2.5
+  envied_generator: ^1.3.3
 
 flutter:
   uses-material-design: true

@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:esewa_flutter_module/core/client/auth_interceptor.dart';
 import 'package:esewa_flutter_module/core/client/log_interceptor.dart';
+import 'package:esewa_flutter_module/env/env.dart';
 import 'package:injectable/injectable.dart';
 
 @singleton
@@ -13,7 +14,7 @@ class DioClient {
   ) {
     _dio = Dio(
       BaseOptions(
-        baseUrl: 'https://fakestoreapi.com/',
+        baseUrl: Env.baseUrl,
         connectTimeout: const Duration(milliseconds: 5000),
         receiveTimeout: const Duration(milliseconds: 3000),
       ),

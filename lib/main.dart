@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:esewa_flutter_module/core/constants/hive_constants.dart';
 import 'package:esewa_flutter_module/core/getIt/service_locator.dart';
 import 'package:esewa_flutter_module/core/helper/android_method_channel_helper.dart';
+import 'package:esewa_flutter_module/core/helper/ios_method_channel_helper.dart';
 import 'package:esewa_flutter_module/core/theme/dark_theme.dart';
 import 'package:esewa_flutter_module/core/theme/light_theme.dart';
 import 'package:esewa_flutter_module/l10n/app_localizations.dart';
@@ -10,10 +13,21 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // initialze hive
   await Hive.initFlutter();
   await Hive.openBox<String>(HiveConstants.uuidBox);
-  await AndroidMethodChannelHelper.init();
+
+  if (Platform.isAndroid) {
+    await AndroidMethodChannelHelper.init();
+  }
+
+  if (Platform.isIOS) {
+    await IosMethodChannelHelper.init();
+  }
+  // setup DI
   configureDependencies();
+
   runApp(const MyApp());
 }
 

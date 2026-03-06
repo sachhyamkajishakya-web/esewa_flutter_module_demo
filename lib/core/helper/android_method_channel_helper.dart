@@ -1,13 +1,11 @@
-import 'package:esewa_flutter_module/core/constants/hive_constants.dart';
+import 'package:esewa_flutter_module/core/helper/uuid_hive_helper.dart';
+import 'package:esewa_flutter_module/core/logger/logger.dart';
 import 'package:esewa_flutter_module/domain/models/channel_data.dart';
-import 'package:esewa_flutter_module/env/env.dart';
 import 'package:flutter/services.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:injectable/injectable.dart';
 
-@Singleton()
 class AndroidMethodChannelHelper {
-  static final _box = Hive.box<String>('uuid_box');
+  final UuidHiveHelper uuidHiveHelper;
+  AndroidMethodChannelHelper(this.uuidHiveHelper);
 
   static const _channel = MethodChannel('com.example.esewa/config');
 
@@ -25,23 +23,9 @@ class AndroidMethodChannelHelper {
     final result = await _channel.invokeMapMethod<String, dynamic>('getConfig');
     if (result != null) {
       final data = ChannelData.fromJson(result);
-      if (data.uuid != null) _cacheUUID(data.uuid!);
-      setEnvironment(data.environment);
-    }
-  }
-
-  static void _cacheUUID(String uuid) => _box.put(HiveConstants.uuidKEY, uuid);
-
-  String? getSavedUUID() => _box.get(HiveConstants.uuidKEY);
-
-  static void setEnvironment(String environment) {
-    switch (environment) {
-      case 'develop':
-        Env.flavor = Flavor.dev;
-      case 'stage':
-        Env.flavor = Flavor.staging;
-      case 'production':
-        Env.flavor = Flavor.prod;
+      if (data.uuid != null) UuidHiveHelper.saveUuid(data.uuid!);
+      UuidHiveHelper.setEnvironment(data.environment);
+      logger.d('DATA FROM METHOD CHANNEL -> ${data.uuid} ${data.environment}');
     }
   }
 }

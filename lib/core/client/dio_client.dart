@@ -4,7 +4,7 @@ import 'package:esewa_flutter_module/core/client/log_interceptor.dart';
 import 'package:esewa_flutter_module/env/env.dart';
 import 'package:injectable/injectable.dart';
 
-@singleton
+@LazySingleton()
 class DioClient {
   late final Dio _dio;
 

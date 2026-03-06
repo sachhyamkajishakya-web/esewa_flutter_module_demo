@@ -2,7 +2,9 @@ import 'package:esewa_flutter_module/core/constants/hive_constants.dart';
 import 'package:esewa_flutter_module/domain/models/channel_data.dart';
 import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:injectable/injectable.dart';
 
+@Singleton()
 class AndroidMethodChannelHelper {
   static final _box = Hive.box<String>('uuid_box');
 
@@ -28,5 +30,5 @@ class AndroidMethodChannelHelper {
 
   static void _cacheUUID(String uuid) => _box.put(HiveConstants.uuidKEY, uuid);
 
-  static String? getSavedUUID() => _box.get(HiveConstants.uuidKEY);
+  String? getSavedUUID() => _box.get(HiveConstants.uuidKEY);
 }

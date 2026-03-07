@@ -20,7 +20,7 @@ Once you have all these follow these steps and you should be good to go.
 7. These should intall all required dependencies and auto-generated files.
 
 
-**Note:** You must find env directory inside lin directory. Create three different files with names .env.dev, .env.stg and .env.prod
+**Note:** You must find env directory inside lib directory. Create three different files with names .env.dev, .env.stg and .env.prod
 
 Within these files please add this key-value 
 

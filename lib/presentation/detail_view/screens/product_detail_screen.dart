@@ -100,7 +100,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       ],
                     ),
                   ),
-                  SizedBox(width: 100),
+                  SizedBox(width: 80),
                   Expanded(
                     flex: 2,
                     child: GestureDetector(

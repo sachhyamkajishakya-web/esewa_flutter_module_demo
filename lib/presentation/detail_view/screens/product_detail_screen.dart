@@ -1,5 +1,6 @@
 import 'package:esewa_flutter_module/core/constants/spacing.dart';
 import 'package:esewa_flutter_module/core/extension/context_extension.dart';
+import 'package:esewa_flutter_module/core/helper/ios_method_channel_helper.dart';
 import 'package:esewa_flutter_module/core/widgets/custom_scaffold.dart';
 import 'package:esewa_flutter_module/domain/models/product.dart';
 import 'package:esewa_flutter_module/presentation/detail_view/widgets/image_section.dart';
@@ -95,17 +96,23 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   SizedBox(width: 100),
                   Expanded(
                     flex: 2,
-                    child: Container(
-                      height: context.width <= 600 ? 50 : 60,
-                      decoration: BoxDecoration(
-                        borderRadius: .circular(AppRadius.md),
-                        color: context.theme.primaryColorLight,
-                      ),
-                      child: Center(
-                        child: Text(
-                          context.l10n.pay,
-                          style: context.textTheme.displayLarge?.copyWith(
-                            color: Colors.white,
+                    child: GestureDetector(
+                      onTap: () =>
+                          IosMethodChannelHelper.sendSelectedItemAndGoBack(
+                            widget.product,
+                          ),
+                      child: Container(
+                        height: context.width <= 600 ? 50 : 60,
+                        decoration: BoxDecoration(
+                          borderRadius: .circular(AppRadius.md),
+                          color: context.theme.primaryColorLight,
+                        ),
+                        child: Center(
+                          child: Text(
+                            context.l10n.pay,
+                            style: context.textTheme.displayLarge?.copyWith(
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ),

@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:esewa_flutter_module/core/constants/spacing.dart';
 import 'package:esewa_flutter_module/core/extension/context_extension.dart';
+import 'package:esewa_flutter_module/core/helper/android_method_channel_helper.dart';
 import 'package:esewa_flutter_module/core/helper/ios_method_channel_helper.dart';
 import 'package:esewa_flutter_module/core/widgets/custom_scaffold.dart';
 import 'package:esewa_flutter_module/domain/models/product.dart';
@@ -97,10 +100,13 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   Expanded(
                     flex: 2,
                     child: GestureDetector(
-                      onTap: () =>
-                          IosMethodChannelHelper.sendSelectedItemAndGoBack(
-                            widget.product,
-                          ),
+                      onTap: () => Platform.isIOS
+                          ? IosMethodChannelHelper.sendSelectedItemAndGoBack(
+                              widget.product,
+                            )
+                          : AndroidMethodChannelHelper.sendSelectedItemAndGoBack(
+                              widget.product,
+                            ),
                       child: Container(
                         height: context.width <= 600 ? 50 : 60,
                         decoration: BoxDecoration(

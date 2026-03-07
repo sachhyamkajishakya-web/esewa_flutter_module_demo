@@ -44,27 +44,30 @@ class _ProductListScreenScaffoldState extends State<ProductListScreenScaffold> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScaffold(
-      child: BlocConsumer<ProductListCubit, ProductListState>(
-        listener: (context, state) {
-          state.maybeWhen(
-            orElse: () {},
-            error: (errorMessage) {
-              // show all error in a dialog box
-              return context.showAlertDialog(
-                title: context.l10n.error,
-                message: errorMessage,
-              );
-            },
-          );
-        },
-        builder: (context, state) {
-          return state.maybeWhen(
-            loading: () => Center(child: CircularProgressIndicator()),
-            orElse: () => const SizedBox.shrink(),
-            success: (products) => ItemGridView(products: products),
-          );
-        },
+    return PopScope(
+      canPop: false,
+      child: CustomScaffold(
+        child: BlocConsumer<ProductListCubit, ProductListState>(
+          listener: (context, state) {
+            state.maybeWhen(
+              orElse: () {},
+              error: (errorMessage) {
+                // show all error in a dialog box
+                return context.showAlertDialog(
+                  title: context.l10n.error,
+                  message: errorMessage,
+                );
+              },
+            );
+          },
+          builder: (context, state) {
+            return state.maybeWhen(
+              loading: () => Center(child: CircularProgressIndicator()),
+              orElse: () => const SizedBox.shrink(),
+              success: (products) => ItemGridView(products: products),
+            );
+          },
+        ),
       ),
     );
   }

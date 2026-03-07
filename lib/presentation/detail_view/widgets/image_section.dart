@@ -8,28 +8,28 @@ class ImageSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => Navigator.of(context).pop(),
-      child: Stack(
-        children: [
-          Container(
-            height: 400,
-            width: double.infinity,
-            padding: .symmetric(vertical: AppSpacing.md),
-            decoration: BoxDecoration(
-              borderRadius: .circular(AppRadius.md),
-              color: context.theme.cardColor,
-            ),
-            child: Image.network(
-              imageUrl,
-              fit: .contain,
-              loadingBuilder: (context, child, loadingProgress) =>
-                  Center(child: child),
-            ),
+    return Stack(
+      children: [
+        Container(
+          height: 400,
+          width: double.infinity,
+          padding: .symmetric(vertical: AppSpacing.md),
+          decoration: BoxDecoration(
+            borderRadius: .circular(AppRadius.md),
+            color: context.theme.cardColor,
           ),
-          Positioned(
-            top: 10,
-            left: 10,
+          child: Image.network(
+            imageUrl,
+            fit: .contain,
+            loadingBuilder: (context, child, loadingProgress) =>
+                Center(child: child),
+          ),
+        ),
+        Positioned(
+          top: 10,
+          left: 10,
+          child: GestureDetector(
+            onTap: () => Navigator.of(context).pop(),
             child: Container(
               padding: .only(left: AppRadius.md),
               decoration: BoxDecoration(
@@ -45,8 +45,8 @@ class ImageSection extends StatelessWidget {
               ),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

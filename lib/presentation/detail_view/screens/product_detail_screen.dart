@@ -28,7 +28,11 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
         children: [
           SingleChildScrollView(
             physics: const AlwaysScrollableScrollPhysics(),
-            padding: .symmetric(horizontal: AppSpacing.md),
+            padding: .only(
+              left: AppSpacing.md,
+              right: AppSpacing.md,
+              bottom: 130,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -59,7 +63,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             right: 0,
             child: Container(
               padding: .symmetric(horizontal: AppSpacing.md),
-              height: 100,
+              height: 120,
               decoration: BoxDecoration(
                 color: context.theme.scaffoldBackgroundColor,
                 borderRadius: BorderRadius.circular(AppRadius.lg),

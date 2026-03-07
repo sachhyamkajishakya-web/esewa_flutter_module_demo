@@ -12,4 +12,6 @@ class ChannelData {
 
   factory ChannelData.fromJson(Map<String, dynamic> json) =>
       _$ChannelDataFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ChannelDataToJson(this);
 }

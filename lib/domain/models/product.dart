@@ -24,6 +24,7 @@ class Product {
 
   factory Product.fromJson(Map<String, dynamic> json) =>
       _$ProductFromJson(json);
+  Map<String, dynamic> toJson() => _$ProductToJson(this);
 }
 
 @JsonSerializable()
@@ -34,4 +35,6 @@ class Rating {
   Rating({required this.count, required this.rate});
 
   factory Rating.fromJson(Map<String, dynamic> json) => _$RatingFromJson(json);
+
+  Map<String, dynamic> toJson() => _$RatingToJson(this);
 }
